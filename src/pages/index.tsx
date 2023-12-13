@@ -9,7 +9,7 @@ import axios from 'axios'
 import { DataProvider, useDataContext } from '@/components/utils/context'
 
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
 
   const { setResponseData } = useDataContext();
 
@@ -43,4 +43,4 @@ const page: React.FC = () => {
   )
 }
 
-export default page
+export default Page
