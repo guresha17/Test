@@ -1,32 +1,29 @@
-import React, { useState } from 'react'
-import InputProps from '../interfaces/inputInterface'
+import React, { useState } from 'react';
+import InputProps from '../interfaces/inputInterface';
 import { useDataContext } from './utils/context';
 
-
 const Input: React.FC<InputProps> = ({ placeholder }) => {
-
     const { responseData, setResponseData } = useDataContext();
     const [searchQuery, setSearchQuery] = useState('');
 
-
-    console.log(responseData, "response data for search input")
-
+    // Hold the original data separately
+    const originalData = responseData;
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value.toLowerCase();
         setSearchQuery(inputValue);
 
         if (inputValue === '') {
-            setResponseData(responseData);
+            // Reset to the original data when the input is empty
+            setResponseData(originalData);
         } else {
-            const filteredData = responseData.filter((item: any) =>
+            const filteredData = originalData.filter((item: any) =>
                 item.name.toLowerCase().includes(inputValue)
             );
 
             setResponseData(filteredData);
         }
     };
-
 
     return (
         <>
@@ -36,9 +33,8 @@ const Input: React.FC<InputProps> = ({ placeholder }) => {
                 value={searchQuery}
                 onChange={handleInputChange}
             />
-
         </>
-    )
-}
+    );
+};
 
-export default Input
+export default Input;

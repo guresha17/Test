@@ -81,10 +81,10 @@ const Footer: React.FC = () => {
                         <>
                             <Col key={index} xs={6} md={8} className='flex justify-center self-center'>
                                 <Row>
-                                    <Col xs={2} md={3}>
+                                    <Col xs={2} md={2}>
                                         <img src={detail.icon} alt={detail.alt} className='text-white' />
                                     </Col>
-                                    <Col xs={22} md={21}>
+                                    <Col xs={22} md={22}>
                                         <Typography className='text-white font-nunito'>{detail.text}</Typography>
                                     </Col>
                                 </Row>
